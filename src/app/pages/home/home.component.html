@@ -1,0 +1,55 @@
+<div class="container py-3">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <span class="anchor" ></span>
+          <!-- form card login -->
+          <div class="card card-outline-secondary">
+            <div class="card-header">
+              <h3 class="mb-0">Search For Cabin</h3>
+            </div>
+            <div class="card-body">
+              <form autocomplete="off" class="form" id="formLogin" name="formLogin" role="form">
+
+                <div class="form-group">
+                  <label>Arrive Date</label>
+                  <input class="form-control" type="date" #arriveDate>
+                </div>
+
+                <div class="form-group">
+                  <label>Password</label>
+                  <input autocomplete="new-password" class="form-control" type="date" #leaveDate>
+                </div>
+
+                <div class="form-group">
+                  <label>Number Of People</label>
+                  <input autocomplete="new-password" class="form-control" type="number" #passengerNum>
+                </div>
+
+                <button class="btn btn-success btn-lg float-right" type="button" style="margin-top: 10px" (click)="findCabin(arriveDate.value, leaveDate.value, passengerNum.value)">Search</button>
+
+              </form>
+            </div><!--/card-block-->
+          </div><!-- /form card login -->
+        </div>
+
+        <div  *ngFor='let c of listCabins'>
+          <div class="card" style="margin-top: 10px">
+            <h5 class="card-header">{{c.cabinName}}</h5>
+            <div class="card-body">
+              <h5 class="card-title">{{c.subCategory}}</h5>
+              <b>Availability: {{c.availability}}</b>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!--/col-->
+  </div><!--/row-->
+</div><!--/container-->
+
+
+<!-- Scroll to Top -->
