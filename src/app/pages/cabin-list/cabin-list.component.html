@@ -1,0 +1,148 @@
+  <div class="container">
+    <h1 style="font-family: 'Montserrat', sans-serif; margin-top: 20px">Available Cabins</h1>
+    <div class="row">
+      <div class="col-sm-9 col-md-9 col-lg-9">
+        <div class="hotel-card bg-white rounded-lg shadow overflow-hidden d-block d-lg-flex" *ngFor = 'let c of listCabins' style="margin-top: 20px">
+          <div class="hotel-card_images">
+            <div id="bootstrapCarousel" class="carousel slide h-100" data-ride="carousel">
+              <div class="carousel-inner h-100">
+                <div class="carousel-item h-100 active">
+                  <img src="../../../assets/images/hotel1.jpg" class="d-block w-100" alt="Hotel Image">
+                </div>
+                <div class="carousel-item h-100">
+                  <img src="../../../assets/images/hotel2.jpg" class="d-block w-100" alt="Hotel Image">
+                </div>
+                <div class="carousel-item h-100">
+                  <img src="../../../assets/images/hotel3.jpg" class="d-block w-100" alt="Hotel Image">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#bootstrapCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#bootstrapCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="hotel-card_info p-4">
+            <div class="d-flex align-items-center mb-2">
+              <h5 class="mb-0 mr-2">{{c.cabinName}}</h5>
+              <div style="margin-left: 5px; margin-right: 5px">
+                <i class="fa fa-star text-warning"></i>
+                <i class="fa fa-star text-warning"></i>
+                <i class="fa fa-star text-warning"></i>
+                <i class="fa fa-star text-warning"></i>
+                <i class="fa fa-star text-warning"></i>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-end">
+              <div class="hotel-card_details">
+                <div class="text-muted mb-2"><i class="fas fa-map-marker-alt margin"></i>{{c.subCategory}}</div>
+                <ul class="hotel-checklist pl-0 mb-0" style="margin-left: -20px">
+                  <li><i class="fa fa-bed margin"></i>{{c.capacity}} Beds</li>
+                  <li><i class="fa fa-wifi margin"></i>WiFi included</li>
+                  <li><i class="fa fa-check margin"></i>Free Cancellation</li>
+                  <li><i class="fa fa-building margin"></i>Deck Number {{c.deck.deckNumber}}</li>
+                </ul>
+              </div>
+              <div class="hotel-card_pricing text-center">
+                <h3>{{c.price}} TND</h3>
+                <button (click)="addCabinToCart(c.idCabin)" class="btn btn-primary add">Add To Bookings</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3 col-md-3 col-lg-3" style="margin-top: 20px">
+        <div class="booking-form" >
+          <h3 style="margin-top: -30px">Modify Search</h3>
+          <form>
+            <div class="form-group">
+              <span class="form-label">Room Type</span>
+              <select class="form-control" [value]="category" (click)="updateCategory()" id="categoryInput">
+                <option value="FOURPAOUTSIDE">4PA OUTSIDE</option>
+                <option value="FOURPAINSIDE">4PA INSIDE</option>
+                <option value="TWOPBOUTSIDE">2PB OUTSIDE</option>
+                <option value="TWOPAINSIDE">2PA INSIDE</option>
+                <option value="HDCOUTSIDE">HDC OUTSIDE</option>
+                <option value="ANTIALLERGYINSIDE">ANTI ALLERGY INSIDE</option>
+                <option value="LUXURYCABIN">LUXURY CABIN</option>
+              </select>
+              <span class="select-arrow"></span>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <span class="form-label">Check In</span>
+                  <input class="form-control" type="date" [value]="arriveDate" required pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}" (click)="updateArriveDate()" id="arriveInput">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <span class="form-label">Check out</span>
+                  <input class="form-control" type="date" [value]="leaveDate" required pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}" (click)="updateLeaveDate()" id="leaveInput">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <span class="form-label">Adults</span>
+                  <select class="form-control" [value]="adultNum" (click)="updateAdultNum()" id="adultNum">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                  <span class="select-arrow"></span>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <span class="form-label">Children</span>
+                  <select class="form-control" [value]="childNum" (click)="updateChildNum()" id="childNum">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                  </select>
+                  <span class="select-arrow"></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-btn">
+              <button class="submit-btn" (click)="updateSearch()">Search</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="booking-form" style="margin-top: 20px; margin-bottom: 20px">
+          <h3 style="margin-top: -30px">Filter Search</h3>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" (click)="filterSearch(9, $event)" id="checkboxNine">
+            <label class="form-check-label">
+              Deck 9
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" (click)="filterSearch(10, $event)">
+            <label class="form-check-label">
+              Deck 10
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" (click)="filterSearch(11, $event)">
+            <label class="form-check-label">
+              Deck 11
+            </label>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>

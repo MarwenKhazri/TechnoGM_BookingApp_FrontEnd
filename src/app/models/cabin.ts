@@ -1,3 +1,5 @@
+import {Deck} from "./deck";
+
 export class Cabin {
 
   idCabin: any;
@@ -7,4 +9,6 @@ export class Cabin {
   capacity: any;
   endDate: any;
   subCategory: any;
+  price: any;
+  deck !: Deck;
 }

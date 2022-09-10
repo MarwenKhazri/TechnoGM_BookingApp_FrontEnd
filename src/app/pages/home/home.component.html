@@ -1,55 +1,178 @@
-<div class="container py-3">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <span class="anchor" ></span>
-          <!-- form card login -->
-          <div class="card card-outline-secondary">
-            <div class="card-header">
-              <h3 class="mb-0">Search For Cabin</h3>
-            </div>
-            <div class="card-body">
-              <form autocomplete="off" class="form" id="formLogin" name="formLogin" role="form">
-
-                <div class="form-group">
-                  <label>Arrive Date</label>
-                  <input class="form-control" type="date" #arriveDate>
-                </div>
-
-                <div class="form-group">
-                  <label>Password</label>
-                  <input autocomplete="new-password" class="form-control" type="date" #leaveDate>
-                </div>
-
-                <div class="form-group">
-                  <label>Number Of People</label>
-                  <input autocomplete="new-password" class="form-control" type="number" #passengerNum>
-                </div>
-
-                <button class="btn btn-success btn-lg float-right" type="button" style="margin-top: 10px" (click)="findCabin(arriveDate.value, leaveDate.value, passengerNum.value)">Search</button>
-
-              </form>
-            </div><!--/card-block-->
-          </div><!-- /form card login -->
+<div id="booking" class="section">
+  <div class="section-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 col-md-push-5">
+          <div class="booking-cta">
+            <h1>Make your reservation</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere, soluta magnam consectetur molestias itaque
+              ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi.
+              Perspiciatis.
+            </p>
+          </div>
         </div>
+        <div class="col-md-4 col-md-pull-7">
+          <div class="booking-form">
+            <form>
+                <div class="form-group">
+                  <span class="form-label">Room Type</span>
+                  <select class="form-control" #category>
+                    <option value="FOURPAOUTSIDE">4PA OUTSIDE</option>
+                    <option value="FOURPAINSIDE">4PA INSIDE</option>
+                    <option value="TWOPBOUTSIDE">2PB OUTSIDE</option>
+                    <option value="TWOPAINSIDE">2PA INSIDE</option>
+                    <option value="HDCOUTSIDE">HDC OUTSIDE</option>
+                    <option value="ANTIALLERGYINSIDE">ANTI ALLERGY INSIDE</option>
+                    <option value="LUXURYCABIN">LUXURY CABIN</option>
+                  </select>
+                  <span class="select-arrow"></span>
+                </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">Check In</span>
+                    <input class="form-control" type="date" required #arriveDate>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">Check out</span>
+                    <input class="form-control" type="date" required #leaveDate>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">Adults</span>
+                    <select class="form-control" #adult>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                    </select>
+                    <span class="select-arrow"></span>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">Children</span>
+                    <select class="form-control" #child>
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                    </select>
+                    <span class="select-arrow"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-btn">
+                <a routerLink="/listCabins/{{arriveDate.value}}/{{leaveDate.value}}/{{adult.value}}/{{child.value}}/{{category.value}}"><button class="submit-btn">Check availability</button></a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <div  *ngFor='let c of listCabins'>
-          <div class="card" style="margin-top: 10px">
-            <h5 class="card-header">{{c.cabinName}}</h5>
-            <div class="card-body">
-              <h5 class="card-title">{{c.subCategory}}</h5>
-              <b>Availability: {{c.availability}}</b>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Book Now</a>
+<div class="section">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="sliderText">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-weight: bold">This is Our Boat.</h2>
+      </div>
+
+      <div id="testimonials" class="carousel slide slider" data-bs-ride="carousel" data-bs-keyboard="true">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="../../../assets/ferry/img1.jpg" alt="First slide" style="width: 100%; height: 100%">
+            <div class="carousel-caption d-none d-md-block">
+              <h4 style="font-family: 'Montserrat', sans-serif; font-weight: bold">Rooms full of joy</h4>
+              <p style="font-family: 'Montserrat', sans-serif;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere, soluta magnam consectetur molestias itaque
+                ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi.
+                Perspiciatis.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="../../../assets/ferry/img2.jpg" alt="First slide" style="width: 100%; height: 100%">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>Rooms full of joy</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere, soluta magnam consectetur molestias itaque
+                ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi.
+                Perspiciatis.</p>
             </div>
           </div>
         </div>
 
+        <!-- Carousel Buttons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonials" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonials" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
       </div>
-    </div><!--/col-->
-  </div><!--/row-->
-</div><!--/container-->
 
+    </div>
+  </div>
+</div>
 
-<!-- Scroll to Top -->
+<div class="section">
+  <div class="container">
+    <div class="row row-cols-3 row-cols-md-2 g-4" style="margin-top: 20px">
+      <div class="col">
+        <div class="card">
+          <img src="../../../assets/cabins/2PA.png" class="card-img-top cabinImages" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">4PA OUTSIDE</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="../../../assets/cabins/4PA.jpg" class="card-img-top cabinImages" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">4PA INSIDE</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="../../../assets/cabins/2PAOUT.jpg" class="card-img-top cabinImages" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">2PB OUTSIDE</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="../../../assets/cabins/2PB.jpg" class="card-img-top cabinImages" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">2PA INSIDE</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 50px">
+
+      <div class="card" style="width: 100%; height: 100%">
+        <img src="../../../assets/cabins/luxury.jpg" class="card-img-top" alt="..." style="width: 100%; height: 600px">
+        <div class="card-body">
+          <h5 class="card-title">Luxury Cabin</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
