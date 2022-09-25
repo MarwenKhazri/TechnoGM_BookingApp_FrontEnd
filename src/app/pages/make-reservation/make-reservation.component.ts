@@ -7,13 +7,13 @@ import {Route, Router} from "@angular/router";
   selector: 'app-make-reservation',
   templateUrl: './make-reservation.component.html',
   styleUrls: ['./make-reservation.component.scss'],
-  
+
 })
 export class MakeReservationComponent implements OnInit {
 
   reservation !: Reservation;
 
-  constructor(private cabinService: CabinService, private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
 
@@ -33,21 +33,5 @@ export class MakeReservationComponent implements OnInit {
 
   }
 
-  makeReservation(checkIn: any, checkOut: any, restaurant:any)
-  {
-    this.reservation.checkIn = checkIn;
-    this.reservation.checkOut = checkOut;
-    this.reservation.restaurant = restaurant;
-    this.reservation.reservationDate =
-
-
-    this.cabinService.makeReservation(this.reservation).subscribe( res => this.goToHome());
-
-
-  }
-
-  goToHome(){
-    this.router.navigate(['home'])
-  }
 
 }

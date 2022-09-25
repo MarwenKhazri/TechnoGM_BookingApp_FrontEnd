@@ -9,6 +9,9 @@ import { MakeReservationComponent } from './pages/make-reservation/make-reservat
 import { CabinListComponent } from './pages/cabin-list/cabin-list.component';
 import { CartComponent } from './pages/cart/cart.component';
 import {FormsModule} from "@angular/forms";
+import { NavbarComponent } from './pages/navbar/navbar.component';
+import {Router, RouterModule} from "@angular/router";
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 @NgModule({
@@ -17,14 +20,16 @@ import {FormsModule} from "@angular/forms";
     HomeComponent,
     MakeReservationComponent,
     CabinListComponent,
-    CartComponent
+    CartComponent,
+    NavbarComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     HttpClientModule,
     FormsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

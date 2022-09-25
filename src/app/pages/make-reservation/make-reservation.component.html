@@ -31,7 +31,7 @@
 
       <div class="col-md-2">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" (change)="reservation.playRoom = !reservation.playRoom">
+          <input class="form-check-input" type="checkbox" (change)="reservation.playRoom = !reservation.playRoom" value="{{reservation.playRoom}}" #playroom>
           <label class="form-check-label">
             Play Room
           </label>
@@ -40,7 +40,7 @@
 
       <div class="col-md-2">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" (change)="reservation.meetingRoom = !reservation.meetingRoom">
+          <input class="form-check-input" type="checkbox" (change)="reservation.meetingRoom = !reservation.meetingRoom" value="{{reservation.meetingRoom}}" #meeting>
           <label class="form-check-label">
             Meeting Room
           </label>
@@ -49,7 +49,7 @@
 
       <div class="col-md-2">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" (change)="reservation.gameRoom = !reservation.gameRoom">
+          <input class="form-check-input" type="checkbox" (change)="reservation.gameRoom = !reservation.gameRoom" value="{{reservation.gameRoom}}" #gameroom>
           <label class="form-check-label">
             Game Room
           </label>
@@ -58,7 +58,7 @@
 
       <div class="col-md-2">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" (change)="reservation.jacuzzi = !reservation.jacuzzi">
+          <input class="form-check-input" type="checkbox" (change)="reservation.jacuzzi = !reservation.jacuzzi" value="{{reservation.jacuzzi}}" #jacuzzi>
           <label class="form-check-label">
             Jacuzzi
           </label>
@@ -67,7 +67,7 @@
 
       <div class="col-md-2">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" (change)="reservation.solarium = !reservation.solarium">
+          <input class="form-check-input" type="checkbox" (change)="reservation.solarium = !reservation.solarium" value="{{reservation.solarium}}" #solarium>
           <label class="form-check-label">
             Solarium
           </label>
@@ -76,7 +76,7 @@
     </div>
 
     <div class="form-group row space">
-        <button type="submit" class="btn btn-primary" (click)="makeReservation(checkin.value, checkout.value, restaurant.value)">Make Reservation</button>
+        <a type="submit" class="btn btn-primary" routerLink="/checkout/{{checkin.value}}/{{checkout.value}}/{{restaurant.value}}/{{playroom.value}}/{{meeting.value}}/{{gameroom.value}}/{{jacuzzi.value}}/{{solarium.value}}">Make Reservation</a>
     </div>
 
   </form>

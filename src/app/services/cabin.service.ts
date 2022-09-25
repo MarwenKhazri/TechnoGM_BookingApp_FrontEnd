@@ -26,9 +26,9 @@ export class CabinService {
     return this.httpClient.get<Cabin[]>(this.API_URL + '/SpringMVC/Cabin/FindCabins', {params})
   }
 
-  makeReservation(R : Reservation)
+  makeReservation(R : Reservation, bookedCabins: any[])
   {
-    return this.httpClient.post<Reservation>(this.API_URL + '/SpringMVC/Reservation/MakeReservation/1,2' , R);
+    return this.httpClient.post<Reservation>(this.API_URL + '/SpringMVC/Reservation/MakeReservation/' + bookedCabins , R);
   }
 
   cabinInCart()

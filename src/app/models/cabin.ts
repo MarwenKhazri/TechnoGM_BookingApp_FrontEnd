@@ -9,6 +9,6 @@ export class Cabin {
   capacity: any;
   endDate: any;
   subCategory: any;
-  price: any;
+  price!: number;
   deck !: Deck;
 }

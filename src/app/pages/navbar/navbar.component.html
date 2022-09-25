@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg" >
+  <div class="container-fluid">
+    <button class="navbar-brand" (click)="goToHome()" style="border: transparent; background-color: transparent">
+      <img src="../../../assets/img/FerryLogo.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+      Ferry
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link active" aria-current="page" (click)="goToCart()" style="border: transparent; background-color: transparent">My Bookings</button>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <a class="nav-link active">
+          <img src="../../../assets/img/ProfilePic.jpg" alt="" width="40" height="40" >
+          Marwen Khazri
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
